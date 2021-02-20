@@ -1,0 +1,24 @@
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    background-color:  rgb(72, 72, 211);
+    align-items: center;
+}
+
+.resumen {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.album, .cancion{
+    align-self: center;
+}
+@media screen and (max-width: 490px) {
+    .resumen, .slideer{
+        display: none;
+    }
+    
+    .contenedor{
+        justify-content: center;
+    }
+}

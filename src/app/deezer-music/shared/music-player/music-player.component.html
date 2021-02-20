@@ -1,18 +1,19 @@
-<div class=" container-fluid row">
-    <div class="col-1" style="background-color: aqua;">
-        <img [src]="cancion.album.cover_small">
+<div class="contenedor">
+    <div class="resumen">
+        <div class="album">
+            <img [src]="cancion.album.cover_small">
+        </div>
+        <div class="cancion" style="margin-left:2rem;">
+            <h4>{{ cancion.title }}</h4>
+            <h5>{{ cancion.artist.name }}</h5>
+        </div>
     </div>
-    <div class="col-2">
-        <h4>{{ cancion.title }}</h4>
-        <h5>{{ cancion.artist.name }}</h5>
-    </div>
-    <div class="col-5" style="background-color: aqua;">
+    <div class="botones">
         <button (click)="detener()">atras</button>
         <button (click)="reproducir()">play</button>
         <button (click)="detener()">adelante</button>
     </div>
-    <div class="col-2" style="background-color: red;">
-        <p>slider</p>
+    <div class="slideer">
         <mat-slider [max]="100" [min]="0" [step]="1" [thumbLabel]="true" (input)="ajustarVolumen( $event )" [value]="100"></mat-slider>
         <button mat-icon-button (click)="muteVolumen()">
           <mat-icon>{{ volumenIcons }}</mat-icon>
