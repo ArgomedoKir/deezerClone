@@ -1,0 +1,15 @@
+<div class="row container-fluid mt-4">
+    <div class="col-3">
+        <app-side-bar></app-side-bar>
+    </div>
+    <div class="col">
+        <form autocomplete="off" (ngSubmit)="buscar()">
+            <input type="text" name="termino" placeholder="Ingrese una cancion" class="form-control" [(ngModel)]="texto" />
+        </form>
+        <h3 class="mt-4">Resultados</h3>
+        <div class="row container">
+            <app-music-card *ngIf="cancion" [data]="cancion" (selecionCancion)="cancionSeleccionada( $event )"></app-music-card>
+        </div>
+    </div>
+    <app-music-player *ngIf="cancionEnReproducion" [data]="cancionEnReproducion"></app-music-player>
+</div>

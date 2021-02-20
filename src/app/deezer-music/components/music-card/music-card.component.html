@@ -1,0 +1,7 @@
+<div class="card mt-2" style="width: 18rem;" (click)="seleccionarCancion()">
+    <img [src]="cancion.album.cover_medium" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{ cancion.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{ cancion.artist.name }}</h6>
+    </div>
+</div>
