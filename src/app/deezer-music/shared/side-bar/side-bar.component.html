@@ -1,7 +1,14 @@
-<h2>Busquedas</h2>
+<h2>Libreria</h2>
 <hr>
 <ul class="list-group">
-    <li class="list-group-item" routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Buscar país</li>
-    <li class="list-group-item" routerLink="region" routerLinkActive="active">Por region</li>
-    <li class="list-group-item" routerLink="capital" routerLinkActive="active">Por capital</li>
+    <li class="list-group-item">Recientes</li>
+    <li class="list-group-item">Artistas</li>
+    <li class="list-group-item" routerLink="/search/album" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Álbums</li>
+    <li class="list-group-item" routerLink="/search/track" routerLinkActive="active">Canciones</li>
+    <li class="list-group-item">Estaciones</li>
+</ul>
+<h2 class="mt-4">Playlist</h2>
+<hr>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let option of playlistOptions">{{ option }}</li>
 </ul>

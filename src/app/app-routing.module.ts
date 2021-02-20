@@ -1,18 +1,15 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { SearchMusicComponent } from "./deezer-music/pages/search-music/search-music.component";
-
 
 const routes: Routes = [
   {
-    path: '',
-    component: SearchMusicComponent,
-    pathMatch: 'full',
+    path: 'search',
+    loadChildren: () => import('./deezer-music/deezer-music.module').then( m => m.DeezerMusicModule )
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'search',
   }
 ];
 

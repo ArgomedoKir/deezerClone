@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { DeezerMusicModule } from './deezer-music/deezer-music.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { DeezerMusicModule } from './deezer-music/deezer-music.module';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    DeezerMusicModule
+    DeezerMusicModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

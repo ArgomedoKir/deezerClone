@@ -1,4 +1,5 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { MatSliderChange } from '@angular/material/slider';
 
 import { Song } from '../../interfaces/songs.interface';
 
@@ -11,6 +12,9 @@ export class MusicPlayerComponent {
 
   @Input('data') cancion!: Song;
   audio!: HTMLAudioElement;
+  volumenIcons: string = 'volume_up';
+  mute: boolean = false;
+  volumen: number = 100;
 
   constructor() { }
 
@@ -31,8 +35,38 @@ export class MusicPlayerComponent {
       this.audio.play();
     }else{
       this.audio = new Audio(this.cancion.preview);
-    this.audio.play();
+      this.audio.play();
     }
   }
 
+  ajustarVolumen( event: MatSliderChange ): void{
+    this.mute = false;
+    this.volumen = event.value!;
+    this.audio.volume = this.volumen / 100;
+    this.setIcon();
+  }
+
+  muteVolumen(){
+    this.mute = !this.mute;
+    if( this.mute ){
+      this.audio.volume = 0;
+    }else{
+      this.audio.volume = this.volumen / 100;
+    }
+    this.setIcon();
+  }
+
+  setIcon(): void{
+    if( this.mute ){
+      this.volumenIcons = 'volume_off';
+    }else{
+      if( this.audio.volume > 0.75 ){
+        this.volumenIcons = 'volume_up';
+      }else if( this.audio.volume > 0.05){
+        this.volumenIcons = 'volume_down';
+      }else{
+        this.volumenIcons = 'volume_mute';
+      }
+    }
+  }
 }
